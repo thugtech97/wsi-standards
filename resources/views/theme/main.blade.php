@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="{{ asset('theme/css/custom.css') }}" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	
-	<link rel="icon" href="{{ asset('storage/icons/'.Setting::getFaviconLogo()->website_favicon) }}" type="image/x-icon">
+	<link rel="icon" href="{{ asset(Setting::getFaviconLogo()->website_favicon) }}" type="image/x-icon">
 
 	<style>
         @php
