@@ -20,13 +20,7 @@ class PageSeeder extends Seeder
 
         $aboutHTML = '';
 
-        $servicesHTML = '';
-
-        $tourpackagesHTML = '';
-
         $contactUsHTML = '';
-
-        $newsHTML = '';
         
         $footerHTML = '<footer id="footer" draggable="true" data-highlightable="1" class="border-0 border-top">
                     <div id="copyrights" draggable="true" data-highlightable="1"><div id="i4xn9t" draggable="true" data-highlightable="1" class="container"><div id="iswjil" draggable="true" data-highlightable="1" class="row justify-content-between"><div id="iq9mwh" draggable="true" data-highlightable="1" class="col"><span id="ing3xk" draggable="true" data-highlightable="1" class="text-black-50">© 2023 House of Travel, Inc.</span><a id="iwrref" draggable="true" data-highlightable="1" href="https://beta.houseoftravel.com.ph/privacy-policy-2" class="gjs-comp-selected">&nbsp; Privacy Policy&nbsp;</a></div><div id="iolzho" draggable="true" data-highlightable="1" class="col text-end">
@@ -86,42 +80,6 @@ class PageSeeder extends Seeder
             [
                 'parent_page_id' => 0,
                 'album_id' => 2,
-                'slug' => 'services',
-                'name' => 'Services',
-                'label' => 'Services',
-                'contents' => $servicesHTML,
-                'status' => 'PUBLISHED',
-                'page_type' => 'standard',
-                'image_url' => '',
-                'meta_title' => 'Services',
-                'meta_keyword' => 'Services',
-                'meta_description' => 'Services page',
-                'user_id' => 1,
-                'template' => '',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'parent_page_id' => 0,
-                'album_id' => 2,
-                'slug' => 'tour-packages',
-                'name' => 'Tour Packages',
-                'label' => 'Tour Packages',
-                'contents' => $tourpackagesHTML,
-                'status' => 'PUBLISHED',
-                'page_type' => 'standard',
-                'image_url' => '',
-                'meta_title' => 'Tour Packages',
-                'meta_keyword' => 'Tour Packages',
-                'meta_description' => 'Tour Packages page',
-                'user_id' => 1,
-                'template' => '',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'parent_page_id' => 0,
-                'album_id' => 2,
                 'slug' => 'contact-us',
                 'name' => 'Contact Us',
                 'label' => 'Contact Us',
@@ -134,138 +92,6 @@ class PageSeeder extends Seeder
                 'meta_description' => 'Contact Us page',
                 'user_id' => 1,
                 'template' => 'contact-us',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'parent_page_id' => 0,
-                'album_id' => 2,
-                'slug' => 'news',
-                'name' => 'News and Updates',
-                'label' => 'News and Updates',
-                'contents' => '',
-                'status' => 'PUBLISHED',
-                'page_type' => 'customize',
-                'image_url' => '',
-                'meta_title' => 'News',
-                'meta_keyword' => 'news',
-                'meta_description' => 'News page',
-                'user_id' => 1,
-                'template' => 'news-list',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ],
-
-         //Submenus
-            
-            //About submenus
-            [
-                'parent_page_id' => 0,
-                'album_id' => 0,
-                'slug' => 'company-profile',
-                'name' => 'Company Profile',
-                'label' => 'Company Profile',
-                'contents' => '',
-                'status' => 'PUBLISHED',
-                'page_type' => 'default',
-                'image_url' => '',
-                'meta_title' => 'Company Profile',
-                'meta_keyword' => 'Company Profile',
-                'meta_description' => 'Company Profile Page',
-                'user_id' => 1,
-                'template' => '',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'parent_page_id' => 0,
-                'album_id' => 0,
-                'slug' => 'awards',
-                'name' => 'Awards',
-                'label' => 'Awards',
-                'contents' => '',
-                'status' => 'PUBLISHED',
-                'page_type' => 'default',
-                'image_url' => '',
-                'meta_title' => 'Awards',
-                'meta_keyword' => 'Awards',
-                'meta_description' => 'Awards Page',
-                'user_id' => 1,
-                'template' => '',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ],
-
-            //Services
-            [
-                'parent_page_id' => 0,
-                'album_id' => 0,
-                'slug' => 'ticketing-and-reservations',
-                'name' => 'Ticketing and Reservations',
-                'label' => 'Ticketing and Reservations',
-                'contents' => '',
-                'status' => 'PUBLISHED',
-                'page_type' => 'default',
-                'image_url' => '',
-                'meta_title' => 'Ticketing and Reservations',
-                'meta_keyword' => 'Ticketing and Reservations',
-                'meta_description' => 'Ticketing and Reservations Page',
-                'user_id' => 1,
-                'template' => '',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'parent_page_id' => 0,
-                'album_id' => 0,
-                'slug' => 'hotel-bookings-and-reservations',
-                'name' => 'Hotel Bookings and Reservations',
-                'label' => 'Hotel Bookings and Reservations',
-                'contents' => '',
-                'status' => 'PUBLISHED',
-                'page_type' => 'default',
-                'image_url' => '',
-                'meta_title' => 'Hotel Bookings and Reservations',
-                'meta_keyword' => 'Hotel Bookings and Reservations',
-                'meta_description' => 'Hotel Bookings and Reservations Page',
-                'user_id' => 1,
-                'template' => '',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'parent_page_id' => 0,
-                'album_id' => 0,
-                'slug' => 'passport-and-visa-processing',
-                'name' => 'Passport and Visa Processing',
-                'label' => 'Passport and Visa Processing',
-                'contents' => '',
-                'status' => 'PUBLISHED',
-                'page_type' => 'default',
-                'image_url' => '',
-                'meta_title' => 'Passport and Visa Processing',
-                'meta_keyword' => 'Passport and Visa Processing',
-                'meta_description' => 'Passport and Visa Processing Page',
-                'user_id' => 1,
-                'template' => '',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'parent_page_id' => 0,
-                'album_id' => 0,
-                'slug' => 'travel-insurance',
-                'name' => 'Travel Insurance',
-                'label' => 'Travel Insurance',
-                'contents' => '',
-                'status' => 'PUBLISHED',
-                'page_type' => 'default',
-                'image_url' => '',
-                'meta_title' => 'Travel Insurance',
-                'meta_keyword' => 'Travel Insurance',
-                'meta_description' => 'Travel Insurance Page',
-                'user_id' => 1,
-                'template' => '',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ],
