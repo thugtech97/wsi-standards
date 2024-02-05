@@ -29,7 +29,7 @@
 
         .signin-hero {
             height: 100vh;
-            background: #ebf7ff url('{{ Setting::get_company_logo_storage_path() }}') center center no-repeat;
+            background: #ebf7ff url('@php echo asset("storage/logos/" . Setting::get_company_logo_storage_path()); @endphp') center center no-repeat;
             background-size: 30%;
         }
     </style>
