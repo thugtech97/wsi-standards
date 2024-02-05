@@ -8,13 +8,13 @@
 				============================================= -->
 				<div id="logo">
 					<a href="{{ route('home') }}" class="standard-logo" data-dark-logo="{{ Setting::get_company_logo_storage_path() }}">
-						<img src="{{ asset(Setting::get_company_logo_storage_path()) }}" 
+						<img src="{{ asset('storage/logos/'.Setting::get_company_logo_storage_path()) }}" 
 							 alt="{{ Setting::info()->company_name }}" 
 							 onerror="handleBrokenImage(this, '{{ Setting::info()->company_name }}')">
 					</a>
 					
 					<a href="{{ route('home') }}" class="retina-logo" data-dark-logo="{{ Setting::get_company_logo_storage_path() }}">
-						<img src="{{ asset(Setting::get_company_logo_storage_path()) }}" 
+						<img src="{{ asset('storage/logos/'.Setting::get_company_logo_storage_path()) }}" 
 							 alt="{{ Setting::info()->company_name }}" 
 							 onerror="handleBrokenImage(this, '{{ Setting::info()->company_name }}')">
 					</a>
