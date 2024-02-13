@@ -5,6 +5,8 @@
     }
 @endphp
 
+<!-- Slider
+		============================================= -->
 <section id="slider" class="slick-wrapper clearfix">
     <div class="banner-wrapper">
         <div class="container-fluid">
@@ -12,54 +14,36 @@
                 <div class="col-lg-12" style="padding:0;">
                     <div id="banner" class="home-slider slick-slider">
                         @foreach ($page->album->banners as $banner)
+                        <div class="hero-slide dark">
+                            <img src="{{ $banner->image_path }}" alt="{{ $banner->title }}">
+                            <div class="banner-caption" style="background: linear-gradient(to left, rgba(0,0,0,0.3) 0%, #0096e0 100%);">
+                                <div class="container">
+                                    <div class="row align-items-centers">
+                                        <div class="col-xl-6">
+                                            <h2 class="text-initial excerpt-3" data-animate="fadeInUp">{{ $banner->title }}</h2>
+                                            <p class="d-none d-sm-block excerpt-3" data-animate="fadeInUp" data-delay="200">{{ $banner->description }}</p>
+                                            <div class="d-flex justify-content-start mt-2 mt-sm-4 mt-md-5 mt-lg-5" data-animate="fadeInUp" data-delay="400">
+                                                @php
+                                                    if($banner->text != ""):
+                                                @endphp
 
-                        @if($is_video > 0)
-                            <div class="hero-slide dark">
-                                <video autoplay="" muted="" loop="" id="myVideo" style="object-fit:none">
-                                    <source src="{{ $banner->image_path }}" type="video/mp4">
-                                </video>
-                                <div class="banner-caption">
-                                    <div class="container">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-12">
-                                                <h2 class="text-center" data-animate="fadeInUp">{{ $banner->title }}</h2>
-                                                <p class="d-none d-sm-block text-center mx-wd-750-f mx-auto" data-animate="fadeInUp" data-delay="200">{{ $banner->description }}</p>
+                                                    <a href="{{ $banner->url }}" class="button button-light button-xlarge button-circle nols fw-normal text-initial fs-20-f h-bg-color-2 ms-0">{{ $banner->button_text }}</a>
 
-                                                @if($banner->url && $banner->button_text) 
-                                                <div class="d-flex justify-content-center mt-5" data-animate="fadeInUp" data-delay="400">
-                                                    <a href="{{ $banner->url }}" class="button button-large button-border">{{ $banner->button_text }}</a>
-                                                </div>
-                                                @endif
+                                                @php
+                                                    endif;
+                                                @endphp
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @else
-                            <div class="hero-slide dark">
-                                <img src="{{ $banner->image_path }}" alt="{{ $banner->title }}">
-                                <div class="banner-caption">
-                                    <div class="container">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-12">
-                                                <h2 class="w-50" data-animate="fadeInUp">{{ $banner->title }}</h2>
-                                                <p class="d-none d-sm-block mx-wd-750-f w-50" data-animate="fadeInUp" data-delay="200">{{ $banner->description }}</p>
-                                                
-                                                @if($banner->url && $banner->button_text)
-                                                <div class="d-flex mt-5" data-animate="fadeInUp" data-delay="400">
-                                                    <a href="{{ $banner->url }}" class="button button-lg btn-dark bg-color rounded-pill mb-5 px-5 border-0">{{ $banner->button_text }} <i class="icon-line-arrow-right color-2 ms-1"></i></a>
-                                                </div>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- #slider end -->

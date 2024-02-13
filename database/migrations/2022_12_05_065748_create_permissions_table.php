@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('module');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->text('routes')->nullable();
             $table->text('methods')->nullable();
             $table->integer('user_id');

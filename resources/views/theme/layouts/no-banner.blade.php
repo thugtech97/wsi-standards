@@ -1,14 +1,47 @@
-{{--<section id="slider" class="slick-carousel clearfix sub-banner">
-    <div class="slider-parallax-inner">
-        <div class="swiper-container swiper-parent">
-            <div class="slick-wrapper" id="banner">
-                <div class="swiper-slide d-flex align-items-center justify-content-center" style="background-image: url('{{asset('theme/images/sub1.jpg')}}'); background-size: cover; padding: 120px 0;">
-                    <div class="container clearfix" style="text-align:center;">
-                        <h1 class="mb-0">{{$page->name}}</h1>
-                        <p><a href="{{ route('home') }}"><i class="icon-home"></i></a> / {{$page->name}}</p>
+@php
+    if($page->name =='Data Privacy Statement' || $page->name =='Privacy Policy'){
+        $photoUrl = $banner;
+    }
+    else{
+        $photoUrl = '/images/no-image.jpg';
+    }
+   
+@endphp
+<!-- Slider
+		============================================= -->
+<section id="slider" class="slick-wrapper clearfix">
+    <div class="banner-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12" style="padding:0;">
+                    <div class="sub-banner-caption dark">
+                        <div class="container" style="position: relative;">
+                            <h2 class="excerpt-1">{{$page->name}}</h2>
+                            <div class="sub-banner-flex">
+                                @if(isset($breadcrumb))
+                                    <ol class="breadcrumb nobottommargin flex-nowrap justify-content-start">
+                                        @foreach($breadcrumb as $link => $url)
+                                            @if($loop->last)
+                                                <li class="breadcrumb-item active" aria-current="page">{{$link}}</li>
+                                            @else
+                                                <li class="breadcrumb-item"><a href="{{$url}}">{{$link}}</a></li>
+                                            @endif
+                                        @endforeach
+                                    </ol>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div id="banner" class="slick-slider">
+                        <div class="hero-slide dark">
+                            <div class="sub-banner-overlay-1"></div>
+                            <img src="{{$photoUrl}}">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>--}}
+</section>
+
+<!-- #slider end -->

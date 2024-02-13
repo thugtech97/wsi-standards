@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'checkAccessRights' => \App\Http\Middleware\CheckAccessRights::class,
         'checkPermission' => \App\Http\Middleware\CheckPermission::class,
+        'checkPagePermission' => \App\Http\Middleware\CheckPagePermission::class
     ];
 }

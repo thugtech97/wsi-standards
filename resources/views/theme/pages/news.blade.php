@@ -10,91 +10,53 @@
 @endsection
 
 @section('content')
-
-
-<div class="container topmargin-lg bottommargin-lg">
-    <div class="row">
-        <span onclick="closeNav()" class="dark-curtain"></span>
-        <div class="col-lg-12 col-md-5 col-sm-12">
-            <span onclick="openNav()" class="button button-small button-circle border-bottom ms-0 text-initial nols fw-normal noleftmargin d-lg-none mb-4"><span class="icon-chevron-left me-2 color-2"></span> Filter</span>
-        </div>
-        <div class="col-lg-3 pe-lg-4">
-            <div class="tablet-view">
-                <a href="javascript:void(0)" class="closebtn d-block d-lg-none" onclick="closeNav()">&times;</a>
-
-                <div class="card border-0">
+    <div class="container bg-white py-5 py-lg-6">
+        <div class="row flex-column-reverse flex-lg-row">
+            <div class="col-lg-4 pe-lg-4">
+                <div class="position-relative">
                     <div class="border-0 mb-5">
-                        <h3 class="mb-3">Search</h3>
-                        <div class="search">
-                            <form class="mb-0" method="get" id="frm_search">
-                                <div class="searchbar">
-                                    <input type="text" name="searchtxt" class="form-control form-input form-search" placeholder="Search news" aria-label="Search news" aria-describedby="button-addon1" />
-                                    <button class="form-submit-search" type="submit" name="submit">
-                                        <i class="icon-line-search"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+                        <a href="{{ route('news.front.index') }}" class="article-sidebar-link d-flex align-items-center font-primary">
+                            Back to news listing <i class="icon-line-arrow-right fs-3 lh-sm color ms-3"></i>
+                        </a>
                     </div>
-
                     <div class="border-0 mb-5">
-                        <h3 class="mb-3">News</h3>
-                        <div class="side-menu">
-                            {!! $dates !!}
+                        <h3 class="mb-1">News</h3>
+                        @foreach($latestArticles as $latest)
+                        <div class="border-custom1 py-3">
+                            <a href="{{ route('news.front.show',$latest->slug) }}" class="article-sidebar-link fs-13px">
+                                {{ $latest->name }}
+                            </a>
+                            <div class="fs-14px fw-normal color">
+                                Posted on {{ date('F d, Y',strtotime($latest->date)) }}
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="border-0 mb-5">
-                        <h3 class="mb-3">Categories</h3>
-                        <div class="side-menu">
-                            <ul class="mb-0 pb-0">
-                                {!!$categories!!}
-                            </ul>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-9">
-            <div class="article-card">
-                <div class="article-title">
-                    <h2>{{$news->name}}</h2>
-                </div>
-                <div class="article-meta">
-                    <div class="entry-meta mb-3">
-                        <ul class="small">
-                            <li><i class="icon-calendar3"></i> {{ date('F d, Y',strtotime($news->date)) }}</li>
-                            <!--li><i class="icon-user"></i> {{$news->user->fullname}}</li>
-                            <li><i class="icon-folder-open"></i> <a href="#">{{ $news->category->name }}</a></li-->
-                        </ul>
+            <div class="col-lg-8">
+                <div class="article-card">
+                    <div class="article-title">
+                        <h2>{{ $news->name }}</h2>
                     </div>
-                    <hr class="mb-4" />
-                </div>
-                <div class="article-image text-center">
+                    <div class="article-meta">
+                        <div class="entry-meta mb-3">
+                            <ul>
+                                <li>Posted on {{ Setting::date_for_news_list($news->date) }}</li>
+                                <li>By {{$news->user->name}}</li>
+                                <li>{{ $news->category->name }}</li>
+                            </ul>
+                        </div>
+                        <hr class="mb-4" />
+                    </div>
                     @if($news->thumbnail_url)
-                        <img class="mb-5 ce" src="{{ $news->thumbnail_url }}" src="{{ $news->thumbnail_url }}" alt="{{$news->name}}" style="width:600px;height:600px;">
-                    @else
-                        <img class="mb-5" src="{{ asset('storage/news_image/news_thumbnail/No_Image_Available.jpg')}}" alt="{{ $news->name }}" style="width:600px;height:600px;">
+                    <div class="article-image">
+                        <img class="mb-5 w-100" src="{{ $news->thumbnail_url }}" alt="{{ $news->name }}">
+                    </div>
                     @endif
-                </div>
-
-                {!! $news->contents !!}
-
-                <br><br>
-                <div class="news-share">
-                    <h5>Share:</h5>
-                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ route('news.front.show',$news->slug) }}" class="social-icon si-rounded si-facebook">
-                        <i class="icon-facebook"></i>
-                        <i class="icon-facebook"></i>
-                    </a>
-                    <!--a target="_blank" href="https://twitter.com/intent/tweet?url={{ route('news.front.show',$news->slug) }}&text=text to share" class="social-icon si-rounded si-twitter">
-                        <i class="icon-twitter"></i>
-                        <i class="icon-twitter"></i>
-                    </a>
-                    <a target="_blank" href="https://www.linkedin.com/uas/login?session_redirect=https://www.linkedin.com/shareArticle?mini=true&url={{ route('news.front.show',$news->slug) }}" class="social-icon si-rounded si-linkedin">
-                        <i class="icon-linkedin"></i>
-                        <i class="icon-linkedin"></i>
-                    </a-->
+                    <div class="news-desc mb-6">
+                        {!! $news->contents !!}
+                    </div>
                 </div>
             </div>
         </div>
@@ -106,6 +68,7 @@
     <script>
         $('#frm_search').on('submit', function(e) {
             e.preventDefault();
+            console.log('sasasa');
             window.location.href = "{{route('news.front.index')}}?type=searchbox&criteria="+$('#searchtxt').val();
         });
     </script>

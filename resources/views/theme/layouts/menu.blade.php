@@ -9,4 +9,3 @@
         @include('theme.layouts.menu-item', ['item' => $item])
     @endforeach
 </ul>
-

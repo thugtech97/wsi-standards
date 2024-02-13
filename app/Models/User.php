@@ -169,7 +169,15 @@ class User extends Authenticatable
         return $path[$nameIndex];
     }
 
+    public function permissions()
+    {
+        return $this->hasMany(Permission::class);
+    }
 
+    public function hasAnyPermissions(array $permissions)
+    {
+        return $this->permissions()->where('name', $permissions)->exists();
+    }
 
     // Access Rights
     public function has_access_to_pages_module()

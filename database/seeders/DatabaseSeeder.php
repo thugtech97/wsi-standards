@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             OptionSeeder::class,
             BannerSeeder::class,
-
+            PermissionsSeeder::class
         ]);
 
         $this->users();

@@ -17,11 +17,11 @@ class SettingSeeder extends Seeder
         $setting = [
             'id' => 1,
             'api_key' => '',
-            'website_name' => 'House Of Travel, Inc.',
+            'website_name' => 'wthfuc',
             'website_favicon' => 'favicon.ico',
             'company_logo' => 'site-logo.png',
             'company_favicon' => '',
-            'company_name' => 'House Of Travel, Inc.',
+            'company_name' => 'wthfuc',
             'company_about' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
             'company_address' => '795 Folsom Ave, Suite 600 San Francisco, CA 94107',
             'google_map' => 'https://www.google.com/maps?ll=14.584069,121.062934&z=17&t=m&hl=en&gl=PH&mapclient=embed&cid=4804121224053792784',
